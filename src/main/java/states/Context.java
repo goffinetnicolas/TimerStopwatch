@@ -9,14 +9,6 @@ public class Context implements EventListener {
   	    
     private ClockState currentState;
 
-    public ClockState getCurrentState() {
-        return currentState;
-    }
-
-    public void setCurrentState(ClockState state) {
-        this.currentState = state;
-    }
-
     public Context() {
     	setCurrentState(AbstractTimer.Instance()); // set initial state
         AbstractTimer.historyState = AbstractTimer.Instance();
@@ -56,5 +48,13 @@ public class Context implements EventListener {
     
     public String getRightText() {
     	return getCurrentState().getRightText();
+    }
+
+    public ClockState getCurrentState() {
+        return currentState;
+    }
+
+    public void setCurrentState(ClockState state) {
+        this.currentState = state;
     }
 }

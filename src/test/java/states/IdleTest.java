@@ -13,7 +13,7 @@ public class IdleTest {
 	private Context context;
 	
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
 		// reset the initial values of timer to avoid inferences between different consecutive tests
 		context = new Context();
 		context.setCurrentState(IdleTimer.Instance()); // because we are testing the IdleTimer state here...
@@ -60,14 +60,6 @@ public class IdleTest {
 	public void testRight() {		
 		// test whether the right() event brings us to the SetTimer state
 		assertSame(SetTimer.Instance(), context.getCurrentState().right());
-	}
-
-	@Ignore
-	public void testLeft() {		
-		/* we cannot test the effect of the left() event here,
-		 * since it is defined in the superclass of the IdleTimer state.
-		 * It is tested in TimerTests.java.
-		 */
 	}
 
 }
