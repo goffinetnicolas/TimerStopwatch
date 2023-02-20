@@ -1,18 +1,20 @@
 package states;
 
-import static org.junit.Assert.*;
 
-import org.junit.*;
-
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import states.timer.*;
 import states.stopwatch.AbstractStopwatch;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 public class TimerTests {
 
 	private static Context context;
 	private ClockState current;
 
-	@Before
+	@BeforeEach
 	public void setup() {
         context = new Context(); // create the state machine context
         AbstractTimer.resetInitialValues();
@@ -28,23 +30,23 @@ public class TimerTests {
 		
 	    assertEquals(Mode.timer, current.getMode());
 	    assertSame(IdleTimer.Instance(), current);
-	    assertEquals("For the value of timer we ", 0, AbstractTimer.getTimer());
-	    assertEquals("For the value of memTimer we ", 0, AbstractTimer.getMemTimer());
+	    assertEquals(0, AbstractTimer.getTimer());
+	    assertEquals(0, AbstractTimer.getMemTimer());
 	}
 	
-	@Test
+	@org.junit.jupiter.api.Test
 	public void testInitialAbstractTimer() {
 		// The initial state of composite state AbstractTimer should be IdleTimer
 		assertSame(AbstractTimer.Instance(), IdleTimer.Instance());
 	}
 	
-	@Test
+	@org.junit.jupiter.api.Test
 	public void testInitialActiveTimer() {
 		// The initial state of composite state ActiveTimer should be RunningTimer
 		assertSame(ActiveTimer.Instance(), RunningTimer.Instance());
 	}
 	
-	@Test
+	@org.junit.jupiter.api.Test
 	public void testHistoryState() {		
 		current = AbstractTimer.Instance();
 		// after processing the left() event, we should arrive in the initial state of AbstractStopwatch

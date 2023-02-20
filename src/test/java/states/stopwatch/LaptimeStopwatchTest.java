@@ -1,10 +1,11 @@
 package states.stopwatch;
 
-import junit.framework.TestCase;
-import org.junit.Assert;
 import states.ClockState;
 
-public class LaptimeStopwatchTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+public class LaptimeStopwatchTest  {
 
     private ClockState test;
 
@@ -16,18 +17,12 @@ public class LaptimeStopwatchTest extends TestCase {
     public void testUp() {
         test = LaptimeStopwatch.Instance();
         ClockState a = test.up();
-        Assert.assertEquals(a,RunningStopwatch.Instance());
+        assertEquals(a,RunningStopwatch.Instance());
     }
 
     public void testGetUpText() {
         test = LaptimeStopwatch.Instance();
         String a = test.getUpText();
-        Assert.assertEquals(a,"unsplit");
-    }
-
-    public void testDoIt() {
-    }
-
-    public void testGetDisplayString() {
+        assertEquals(a,"unsplit");
     }
 }
