@@ -8,6 +8,15 @@ public class LaptimeStopwatch extends ActiveStopwatch {
 	
 	// use Singleton design pattern
     private LaptimeStopwatch() {};
+
+    public static LaptimeStopwatch getInstance() {
+        return instance;
+    }
+
+    public static void setInstance(LaptimeStopwatch instance) {
+        LaptimeStopwatch.instance = instance;
+    }
+
     private static LaptimeStopwatch instance = null;
     public static LaptimeStopwatch Instance() {
         if(instance == null) instance = new LaptimeStopwatch();
