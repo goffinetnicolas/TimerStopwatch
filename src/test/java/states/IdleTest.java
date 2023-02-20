@@ -1,11 +1,9 @@
 package states;
 
 import static org.junit.Assert.*;
-import states.Context;
 import states.timer.*;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class IdleTest {
